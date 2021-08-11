@@ -1,3 +1,6 @@
+.invalid-credentials{
+    color: red;
+}
 .bg{
     background-image:url("https://ak.picdn.net/shutterstock/videos/12587588/thumb/1.jpg");
     background-repeat: no-repeat;

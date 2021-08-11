@@ -10,8 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  loginData: any = {};
 
+  isAnyError=false;
+
+  loginData: any = {};
   loginForm: FormGroup;
   submitted = false;
   errorMessage = "";
@@ -20,10 +22,11 @@ export class LoginComponent implements OnInit {
   // passwordPattern = '((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})';  ,Validators.pattern(this.passwordPattern)
 
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private pharmacy: PharmacyService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, public pharmacy: PharmacyService) { }
 
 
   ngOnInit() {
+    this.pharmacy.isLoggenInVarError=false;
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
@@ -38,14 +41,19 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.loginForm.valid) {
-
-      this.pharmacy.login(this.loginForm.value)
+      this.pharmacy.login(this.loginForm.value);
+      console.log(this.pharmacy.isLoggenInVarError);
+      console.log(this.pharmacy.token);
+      console.log("token is"+localStorage.getItem("token"))
       //  this.auth.loginUserData(this.loginForm.value)
       //  if(this.auth.getusername.equals( "admin"))
 
-
-
     }
+  }
+
+  public toggleIsAnyError(){
+    this.isAnyError=true;
+    console.log(this.isAnyError);
   }
 
 }
