@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="bg">
+  <div class="row">
+      <div class="col-lg-1"></div>
+
+
+      <table style="color:black;background: lightblue;">
+          <thead>
+              <tr>
+                  <th style="text-align:center">Pharmacy</th>
+                  <th style="text-align:center">Medicine</th>
+                  <th style="text-align:center">Stock Available</th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- <c:forEach items="${pharmacyList}" var="ph"><br> -->
+                  <tr *ngFor = "let r of response" style="border:1px solid white">
+                      <td style="text-align:center">{{r.pharmacyName}}</td>
+                      <td style="text-align:center">{{r.medicineName}}</td>
+                      <td style="text-align:center">{{r.supplyCount}}</td>
+                  </tr>
+              <!-- </c:forEach> -->
+          </tbody>
+      </table>
+
+
+  </div>
+  </div>
+  <app-footer></app-footer>

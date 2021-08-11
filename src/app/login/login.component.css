@@ -1,0 +1,18 @@
+.bg{
+    background-image:url("https://ak.picdn.net/shutterstock/videos/12587588/thumb/1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .abc {
+        background-color: powderblue;
+    }
+    .btn{
+      background-color: lightseagreen;
+    }
+    .text-white-50 {
+        color: #055160!important;
+    }
+    .btn-outline-dark {
+        color: #212529;
+        border-color: #212529;
+    }

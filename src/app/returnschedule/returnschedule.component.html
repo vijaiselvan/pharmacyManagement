@@ -1,0 +1,34 @@
+<app-header></app-header>
+<div class="bg">
+  <div class="container" style="text-align:center;">
+    <table class="table " style="color:black;background: lightblue;" *ngIf="response?.length!=0">
+      <thead>
+        <tr>
+          <th>Rep Name</th>
+          <th>Doctor's Name</th>
+          <th>Treating Ailment</th>
+          <th>Medicine</th>
+          <th>Slot</th>
+          <th>Date</th>
+          <th>Doctor Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr *ngFor="let detail of response">
+            <td>{{detail.repName}}</td>
+            <td>{{detail.doctorName}}</td>
+            <td>{{detail.treatingAilment}}</td>
+            <td>{{detail.medicine}}</td>
+            <td>{{detail.meetingSlot}}</td>
+            <td>{{detail.dateOfMeeting}}</td>
+            <td>{{detail.doctorContactNumber}}</td>
+          </tr>
+        <!-- </c:forEach> -->
+      </tbody>
+    </table>
+    <div *ngIf="response?.length==0">
+      <p>Unable to retrieve data</p>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

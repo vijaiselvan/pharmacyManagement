@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="bg">
+  <div class="container">
+      <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+
+            <div class="card-body bg-card text-light mt-5">
+                <h2 class="text-dark pb-3">Place-Demand</h2>
+                <table>
+                    <tr class="odd">
+
+                        <td class="quantity">
+                          <form ngNativeValidate #placeDemandForm = "ngForm" (ngSubmit) = "onSubmit(placeDemandForm.value)">
+                                <label for="med" style="float:left" >Enter Medicine Name: </label>
+                                <select id="med" ngModel name="name" style="float:right" required>
+                                    <option value="Orthoherb">Orthoherb</option>
+                                    <option value="Cholecalciferol">Cholecalciferol</option>
+                                    <option value="Gaviscon">Gaviscon</option>
+                                    <option value="Dolo-650">Dolo-650</option>
+                                    <option value="Cyclopam">Cyclopam</option>
+                                    <option value="Hilact">Hilact</option>
+                                </select><br><br>
+                                <label for="demCount" style="float:left">Enter Demand Count: </label>
+                                <input type="number" ngModel id="demCount"
+                                    class="rounded-pill shadow-sm border-0 demand-input" name="demand" required>
+                                <br><br>
+                                <input type="submit"
+                                    class="btn float-right btn-outline-bg text-white rounded-pill submit-btn">
+                            </form>
+
+                        </td>
+                    </tr>
+
+                </table>
+
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+<app-footer></app-footer>
