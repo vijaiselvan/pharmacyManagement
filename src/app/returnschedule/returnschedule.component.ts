@@ -8,29 +8,34 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-returnschedule',
   templateUrl: './returnschedule.component.html',
-  styleUrls: ['./returnschedule.component.css']
+  styleUrls: ['./returnschedule.component.css'],
 })
 export class ReturnscheduleComponent implements OnInit {
+  constructor(
+    private http: HttpClient,
+    private pharmacyservice: PharmacyService,
+    private location: Location
+  ) {}
 
-  constructor(private http:HttpClient,private pharmacyservice:PharmacyService,private location: Location) { }
-
-  response:any;
+  response: any;
   StartDate: String;
 
   ngOnInit() {
+    this.pharmacyservice.checkIsLoggenIn();
     console.log(this.location.getState());
-     this.pharmacyservice.scheduleAppointment(this.pharmacyservice.date["startdate"]).subscribe(data=>
-      {
-        this.response=data
+    this.pharmacyservice
+      .scheduleAppointment(this.pharmacyservice.date['startdate'])
+      .subscribe(
+        (data) => {
+          this.response = data;
 
-        console.log(this.response);
+          console.log(this.response);
         },
-        (error)=>
-        {
-          console.log("error in return schedule")
-        })
-          //this.Router.navigateByUrl('/returnschedule',{ state: { id:1 , name:'Angular',value:resp } })
-
+        (error) => {
+          console.log('error in return schedule');
+        }
+      );
+    //this.Router.navigateByUrl('/returnschedule',{ state: { id:1 , name:'Angular',value:resp } })
   }
 
   // public getApiCall(val:any){

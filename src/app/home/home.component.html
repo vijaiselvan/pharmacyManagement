@@ -1,56 +1,14 @@
 <app-header></app-header>
-<!-- <div class="bg">
 
-  <div class="container">
-    <div class="row">
-        <div class="col-lg-6 mb-4 mx-auto">
-            <div class="card card-color">
-
-                <div class="card-body">
-                    <h5 class="card-title">List of pharmacies</h5>
-                    <p class="card-text">
-                        Here are the list of pharmacies that we have tie up with.
-                        <ul>
-                          <li>MedCity</li>
-                          <li>Med 7</li>
-                          <li>PharmaOne</li>
-                          <li>MediLane</li>
-                          <li>Pharma Plus</li>
-                        </ul>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6 mb-4 mx-auto">
-            <div class="card card-color">
-
-
-                <div class="card-body">
-                    <h5 class="card-title">List of medicines</h5>
-                    <p class="card-text">
-                        Here are the medicines we supply to pharmacies.
-                        <ul>
-                          <li>Cholecalciferol</li>
-                          <li>Cyclopam</li>
-                          <li>Dolo-650</li>
-                          <li>Gaviscon</li>
-                          <li>Hilact</li>
-                          <li>Orthoherb</li>
-                        </ul>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div> -->
-<h1 class="center"> Medicine Stock</h1>
-<div class="bg">
-  <table class="table" *ngIf="response?.length!=0" style="color:black;background: lightblue;">
+<h1 class="center">Medicine Stock</h1>
+<div class="bg py-5" style="text-align: center">
+  <table
+    class="table table-bordered"
+    *ngIf="response?.length != 0"
+    style="color: white; background: rgba(27, 31, 31, 0.7)"
+  >
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Chemical Composition</th>
         <th scope="col">DateOfExpiry</th>
@@ -60,16 +18,15 @@
     </thead>
     <tbody>
       <tr *ngFor="let d of response">
-        <th scope="row">{{d.id}}</th>
-        <td>{{d.name}}</td>
-        <td>{{d.chemicalComposition}}</td>
-        <td>{{d.dateOfExpiry}}</td>
-        <td>{{d.numberOfTabletsInStock}}</td>
-        <td>{{d.targetAilment}}</td>
+        <td>{{ d.name }}</td>
+        <td>{{ d.chemicalComposition }}</td>
+        <td>{{ d.dateOfExpiry }}</td>
+        <td>{{ d.numberOfTabletsInStock }}</td>
+        <td>{{ d.targetAilment }}</td>
       </tr>
     </tbody>
   </table>
-  <div *ngIf="response?.length==0">
+  <div *ngIf="response?.length == 0">
     <p>Unable to retrieve data</p>
   </div>
 </div>

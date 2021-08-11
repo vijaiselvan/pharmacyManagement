@@ -1,39 +1,67 @@
 <app-header></app-header>
 <div class="bg">
   <div class="container">
-      <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-
-            <div class="card-body bg-card text-light mt-5">
-                <h2 class="text-dark">View-Schedule</h2>
-                <div class="card-block">
-                    <h4 class="card-title text-dark">Enter Start Date:</h4>
-                    <p class="card-text text-dark">(Schedule will be displayed for 5 days)</p>
-                    <!-- <form action="/RepSchedule" method="GET">
+    <div class="row">
+      <div class="col-6 offset-3">
+        <div id="schedule-card" class="card-body bg-card text-light mt-5 p-5">
+          <h2 class="text-light text-center pb-4">View-Schedule</h2>
+          <div class="card-block mb-3">
+            <h4 class="card-title text-light text-center">Enter Start Date</h4>
+            <p class="card-text text-light mb-3 text-center">
+              (Schedule will be displayed for 5 days)
+            </p>
+            <hr />
+            <!-- <form action="/RepSchedule" method="GET">
                         <div class="controls">
                         <input type="date" class="date" id="startdate" name="startdate" required><br><br>
                         <button class="btn btn-outline-bg rounded-pill text-light "routerLink='/returnschedule'>View Schedule</button>
                            </div>
                     </form> -->
-                    <div class="container">
-
-                      <form ngNativeValidate #scheduleForm="ngForm" (ngSubmit)="getValues(scheduleForm.value)">
-                        <div class="form-group">
-                          <label>Date:</label>
-                          <div class="input-group">
-                            <input type="date" [min]="minDate" ngModel class="date" id="startdate" name="startdate" required>
-                          </div>
-                        </div><br>
-                        <button class="btn btn-outline-bg rounded-pill text-light ">View Schedule</button>
-                      </form>
+            <div class="container">
+              <form
+                ngNativeValidate
+                #scheduleForm="ngForm"
+                (ngSubmit)="getValues(scheduleForm.value)"
+              >
+                <div class="form-group mt-2">
+                  <div class="row">
+                    <div class="col-6">
+                      <label>Date:</label>
                     </div>
-
+                    <div class="col-6">
+                      <div class="input-group">
+                        <input
+                          type="date"
+                          [min]="minDate"
+                          ngModel
+                          class="date"
+                          id="startdate"
+                          name="startdate"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
+                <br />
+                <div class="text-center mt-2">
+                  <button
+                    class="
+                      schedule-btn
+                      btn btn-outline-bg
+                      rounded-pill
+                      text-light
+                    "
+                  >
+                    View Schedule
+                  </button>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
 <app-footer></app-footer>

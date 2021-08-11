@@ -6,25 +6,31 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-supplyavailed',
   templateUrl: './supplyavailed.component.html',
-  styleUrls: ['./supplyavailed.component.css']
+  styleUrls: ['./supplyavailed.component.css'],
 })
 export class SupplyavailedComponent implements OnInit {
-
-  response:any
-  constructor(private http:HttpClient,private pharmacyservice:PharmacyService) { }
+  response: any;
+  constructor(
+    private http: HttpClient,
+    private pharmacyservice: PharmacyService
+  ) {}
 
   ngOnInit(): void {
+    this.pharmacyservice.checkIsLoggenIn();
+    this.pharmacyservice
+      .placeDemandMethod(
+        this.pharmacyservice.data['name'],
+        this.pharmacyservice.data['demand']
+      )
+      .subscribe(
+        (data) => {
+          this.response = data;
 
-     this.pharmacyservice.placeDemandMethod(this.pharmacyservice.data["name"],this.pharmacyservice.data["demand"]).subscribe(data=>
-      {
-        this.response=data
-
-        console.log(this.response);
+          console.log(this.response);
         },
-        (error)=>
-        {
-          console.log("error in return schedule")
-        })
+        (error) => {
+          console.log('error in return schedule');
+        }
+      );
   }
-
 }

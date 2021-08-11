@@ -1,0 +1,29 @@
+#card {
+  background-color: rgba(27, 31, 31, 0.624);
+  border-radius: 20px;
+}
+
+.demand-table {
+  margin-top: 20px;
+  width: 100%;
+  font-size: 21px;
+}
+
+#med {
+  width: 100%;
+}
+
+#demCount {
+  width: 100%;
+}
+
+.supply-btn .submit-btn {
+  padding: 7px 20px;
+  text-align: center;
+  background-color: #05516096;
+  transition: all 0.3s;
+}
+
+.supply-btn .submit-btn:hover {
+  background-color: #055160;
+}
