@@ -1,1 +1,8 @@
-h1 {text-align: center;}
+h1 {
+  text-align: center;
+}
+
+.home-title {
+  background-color: rgba(255, 255, 255, 0.624);
+  padding: 7px 0;
+}
